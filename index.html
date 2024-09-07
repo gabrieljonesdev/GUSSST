@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>U.S. Government Official Website</title>
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #ffffff;
+    }
+
+    h2, h3 {
+      color: #002b77;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+      outline: 2px solid #0056b3; /* Aggiunto per migliorare la visibilità del focus */
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Header */
+    header {
+      background-color: #003d6b;
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 4px solid #e31c3d;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #003d6b;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      padding: 0.8em 1.5em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover, nav ul li a:focus {
+      background-color: #0056b3;
+      color: #ffffff;
+    }
+
+    /* Main Section */
+    main {
+      padding: 2rem 0;
+      background-color: #ffffff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-item {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .grid-item:hover, .grid-item:focus {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      color: #002b77;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .button-primary {
+      display: inline-block;
+      background-color: #e31c3d;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+    }
+
+    .button-primary:hover, .button-primary:focus {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #003d6b;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer a {
+      color: #e31c3d;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #e31c3d;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .modal-close:hover, .modal-close:focus {
+      background: #d72a2a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1 id="main-title">U.S. Government Official Website</h1>
+    <p>Providing Reliable Information and Services to All Citizens</p>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="#home" tabindex="0">Home</a></li>
+      <li><a href="#services" tabindex="0">Services</a></li>
+      <li><a href="#news" tabindex="0">News</a></li>
+      <li><a href="#contact" tabindex="0">Contact</a></li>
+      <li><a href="#about" tabindex="0">About Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section id="home">
+      <h2>Welcome to the U.S. Government Website</h2>
+      <p>Our site aims to provide transparent, accessible, and up-to-date information and services. Navigate through our sections to explore available resources and updates.</p>
+      <button class="button-primary" onclick="openModal()" aria-label="Explore Services">Discover More</button>
+    </section>
+
+    <section id="services" class="grid">
+      <div class="grid-item" tabindex="0">
+        <h2>Healthcare Services</h2>
+        <p>Access comprehensive information on healthcare options, insurance plans, and public health resources.</p>
+      </div>
+      <div class="grid-item" tabindex="0">
+        <h2>Education Services</h2>
+        <p>Explore federal educational programs, student loan options, and resources to support academic growth.</p>
+      </div>
+      <div class="grid-item" tabindex="0">
+        <h2>Public Safety</h2>
+        <p>Stay informed about public safety initiatives, emergency preparedness, and law enforcement services.</p>
+      </div>
+    </section>
+
+    <section id="news" class="grid">
+      <div class="grid-item" tabindex="0">
+        <h2>Latest News</h2>
+        <p>Get the latest updates on government policies, new initiatives, and major announcements.</p>
+      </div>
+      <div class="grid-item" tabindex="0">
+        <h2>Press Releases</h2>
+        <p>Read official press releases and statements from various federal agencies and departments.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="grid-item">
+      <h2>Contact Us</h2>
+      <p>If you need assistance or have questions, contact our support team. We're here to help you with any issues or inquiries.</p>
+      <button class="button-primary" onclick="openModal()" aria-label="Get in Touch">Get in Touch</button>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 U.S. Government. All rights reserved.</p>
+    <p><a href="#privacy" tabindex="0">Privacy Policy</a> | <a href="#terms" tabindex="0">Terms of Use</a></p>
+  </footer>
+
+  <!-- Modal Structure -->
+  <div id="infoModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h2 id="modalTitle">More Information</h2>
+      <p>Here is more information about our services. We aim to provide the best possible support to all our citizens. For further details, please contact us or visit our website regularly.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function openModal() {
+      document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('infoModal').style.display = 'none';
+    }
+
+    document.querySelector('.modal-close').addEventListener('click', closeModal);
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+      if (event.target === document.getElementById('infoModal')) {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
